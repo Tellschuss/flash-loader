@@ -1,0 +1,59 @@
+body {
+  background: radial-gradient(
+    circle,
+    rgba(19, 17, 17, 1) 0%,
+    rgba(0, 0, 0, 1) 17%,
+    rgba(0, 0, 0, 1) 27%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+.container {
+  animation: rotate 3s ease-in-out forwards infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(90deg);
+  }
+}
+
+@for $i from 1 through 51 {
+  .outter:nth-child(#{$i}) {
+    transform: rotate($i * 7.2deg) translate3d(80px, 0, 0);
+  }
+}
+
+.outter {
+  display: block;
+  position: absolute;
+
+  .inner {
+    display: block;
+    box-shadow: 0px 0px 14px rgba(255, 255, 255, 1);
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    border-radius: 100%;
+    animation: glow 3s ease-in-out forwards infinite;
+  }
+}
+
+@keyframes glow {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(2) translate(-4px, -4px);
+  }
+  60% {
+    transform: translate(55px, -44px) scale(0.4);
+  }
+}
